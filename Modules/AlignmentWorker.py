@@ -47,14 +47,14 @@ class AlignRNAMaker():
                 tfile1 = FM.ret_temp_file()
                 if fq.paired_flag:
                     if fq.twofq:
-                        out = ' '.join(['hisat2', '-q','--max-intronlen','10000', '-p',str(cpu_count()),'-x',hisat2_index_file,'--rna-strandness','R','-1', fq.fqfile,'-2',fq.fqfile2])
+                        out = ' '.join(['hisat2', '-q','--max-intronlen','10000', '-p',str(cpu_count()-1),'-x',hisat2_index_file,'-1', fq.fqfile,'-2',fq.fqfile2])
                         print(out)
-                        call(['hisat2', '-q','--max-intronlen','10000', '-p',str(cpu_count()),'-x',hisat2_index_file,'--rna-strandness','R','-1', fq.fqfile,'-2',fq.fqfile2], stdout = open(tfile1, 'w'))
+                        call(['hisat2', '-q','--max-intronlen','10000', '-p',str(cpu_count()-1),'-x',hisat2_index_file,'-1', fq.fqfile,'-2',fq.fqfile2], stdout = open(tfile1, 'w'))
                         
                 else:
-                    out = ' '.join(['hisat2', '-q','--max-intronlen','10000', '-p',str(cpu_count()),'-x',hisat2_index_file,'--rna-strandness','R','-U', fq.fqfile])
+                    out = ' '.join(['hisat2', '-q','--max-intronlen','10000', '-p',str(cpu_count()-1),'-x',hisat2_index_file,'-U', fq.fqfile])
                     print(out)
-                    call(['hisat2', '-q','--max-intronlen','10000', '-p',str(cpu_count()),'-x',hisat2_index_file,'--rna-strandness','R','-U', fq.fqfile], stdout = open(tfile1, 'w'))
+                    call(['hisat2', '-q','--max-intronlen','10000', '-p',str(cpu_count()-1),'-x',hisat2_index_file,'-U', fq.fqfile], stdout = open(tfile1, 'w'))
                 tfile2 = FM.ret_temp_file('.bam')
                 tfile3 = FM.ret_temp_file('.bam')
                 p1 = Popen(['samtools', 'view', '-bh', '-@', str(cpu_count()), tfile1], stdout=PIPE)
