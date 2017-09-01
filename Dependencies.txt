@@ -1,0 +1,12 @@
+Python Dependencies
+pysam
+pyfaidx
+
+Command Line Dependencies
+bwa
+samtools
+vcftools
+freebayes
+bgzip
+tabix
+hisat2
