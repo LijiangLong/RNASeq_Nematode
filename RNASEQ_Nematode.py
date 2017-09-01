@@ -2,7 +2,6 @@ import argparse
 #import Modules.SeqOrganizer as SO
 import Modules.DatabaseWorker as DBW
 import Modules.AlignmentWorker as AW
-import Modules.VariantCallerWorker as VCW
 import Modules.ReadcountWorker as RCW
 import Modules.RegionWorker as RW
 import Modules.GOWorker as GW

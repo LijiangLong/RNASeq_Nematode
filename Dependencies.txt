@@ -1,6 +1,8 @@
 Python Dependencies
 pysam
 pyfaidx
+Openpyxl
+
 
 Command Line Dependencies
 bwa
