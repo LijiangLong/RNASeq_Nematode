@@ -60,7 +60,7 @@ class AlignRNAMaker():
                 p1 = Popen(['samtools', 'view', '-bh', '-@', str(cpu_count()), tfile1], stdout=PIPE)
                 p2 = Popen(['samtools', 'sort','-o', tfile2, '-@', str(cpu_count()), '-'], stdin = p1.stdout)
                 p2.communicate()
-                call(['samtools','rmdup','-s', tfile2, tfile3])
+                call(['samtools','rmdup', tfile2, tfile3])
 
                 #call(['java', '-jar','/usr/local/share/java/picard.jar','SortSam', 'I=' + tfile1, 'O=' + tfile2, 'SORT_ORDER=coordinate'])
                 call(['rm', '-f', tfile1, tfile2, 'temp.txt'])
